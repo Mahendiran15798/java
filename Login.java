@@ -13,6 +13,8 @@ import android.widget.Toast;
 public class Login extends AppCompatActivity {
     static final String Tag = "Ntechnology";
 
+    String UserName ="admin";
+    String Password = "admin";
     Button btnLogin;
     EditText edUserName, edPassword;
 
@@ -24,40 +26,51 @@ public class Login extends AppCompatActivity {
         Toast.makeText(this,"OnCreate",Toast.LENGTH_LONG).show();
 
 
+/*
         String Login = "Successfully Login";
+*/
         btnLogin = (Button)findViewById(R.id.btnLogin);
         edUserName = (EditText)findViewById(R.id.edUserName);
         edPassword = (EditText)findViewById(R.id.edPassword);
 
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+/*                String password = null;
+                String userName = null;*/
+                if(UserName.equals(edUserName.getText().toString())&&
+                        Password.equals(edPassword.getText().toString())){
 
-                String userName = edUserName.getText().toString();
-                String password = edPassword.getText().toString();
+                    Intent intent =new Intent(Login.this,MainActivity2.class);
+                    startActivity(intent);
 
-                if (userName.isEmpty()){
+
+                }
+               /* if (userName.isEmpty()){
                     edUserName.setError("Please enter User name");
                     edUserName.requestFocus();
                     return;
-                }if (password.isEmpty()){
+                }
+
+
+                if (password.isEmpty()){
                     edPassword.setError("Please enter Password");
                     edPassword.requestFocus();
                     return;
 
 
-                }else {
+                } else {
+                    Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_LONG).show();
 
-                    Intent intent =new Intent(Login.this,MainActivity2.class);
-                    startActivity(intent);
-                }
-
+                }*/
             }
 
         });
-        Toast.makeText(this,"Successfully Login",Toast.LENGTH_LONG).show();
 
     }
+
+
     @Override
     protected void onStart() {
         super.onStart();
